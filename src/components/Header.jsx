@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import FirebaseContext from "../context/firebase";
 import userContext from "../context/user";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as ROUTES from "../constants/routes";
 
 export default function Header() {
