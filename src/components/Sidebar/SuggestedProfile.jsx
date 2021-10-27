@@ -23,6 +23,7 @@ export default function SuggestedProfile({
     await updateLoggedInUserFollowing(loggedInUserDocId, profileId, false);
     await updateFollowedUserFollowers(profileDocId, userId, false);
     const [user] = await getUserByUserId(userId);
+    console.log(user);
     setActiveUser(user);
   }
 
