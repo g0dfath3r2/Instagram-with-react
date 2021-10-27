@@ -16,14 +16,14 @@ export default function SuggestedProfile({
   loggedInUserDocId,
 }) {
   const [followed, setFollowed] = useState(false);
-  // const { setActiveUser } = useContext(LoggedInUserContext);
+  const { setActiveUser } = useContext(LoggedInUserContext);
 
   async function handleFollowUser() {
     setFollowed(true);
     await updateLoggedInUserFollowing(loggedInUserDocId, profileId, false);
     await updateFollowedUserFollowers(profileDocId, userId, false);
     const [user] = await getUserByUserId(userId);
-    // setActiveUser(user);
+    setActiveUser(user);
   }
 
   return !followed ? (
