@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import {
@@ -6,7 +6,7 @@ import {
   updateFollowedUserFollowers,
   getUserByUserId,
 } from "../../services/firebase";
-import LoggedInUserContext from "../../context/logged-in-user";
+// import LoggedInUserContext from "../../context/logged-in-user";
 
 export default function SuggestedProfile({
   profileDocId,
@@ -16,15 +16,15 @@ export default function SuggestedProfile({
   loggedInUserDocId,
 }) {
   const [followed, setFollowed] = useState(false);
-  const { setActiveUser } = useContext(LoggedInUserContext);
+//   const { setActiveUser } = useContext(LoggedInUserContext);
 
   async function handleFollowUser() {
     setFollowed(true);
     await updateLoggedInUserFollowing(loggedInUserDocId, profileId, false);
     await updateFollowedUserFollowers(profileDocId, userId, false);
     const [user] = await getUserByUserId(userId);
-    console.log(user);
-    setActiveUser(user);
+//     console.log(user);
+//     setActiveUser(user);
   }
 
   return !followed ? (
